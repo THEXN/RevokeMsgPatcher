@@ -354,6 +354,10 @@ namespace RevokeMsgPatcher
                         qqModifier.Config = newBag.Apps["QQ"];
                         timModifier.Config = newBag.Apps["TIM"];
                         qqLiteModifier.Config = newBag.Apps["QQLite"];
+                        if (newBag.Apps.ContainsKey("QQNT"))
+                        {
+                            qqntModifier.Config = newBag.Apps["QQNT"];
+                        }
 
                         getPatchJsonStatus = "SUCCESS";
                         bag = newBag;

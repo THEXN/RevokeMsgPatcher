@@ -85,7 +85,7 @@
             this.btnPatch.Name = "btnPatch";
             this.btnPatch.Size = new System.Drawing.Size(98, 23);
             this.btnPatch.TabIndex = 3;
-            this.btnPatch.Text = "安装补丁！";
+            this.btnPatch.Text = "安装所选功能";
             this.btnPatch.UseVisualStyleBackColor = true;
             this.btnPatch.Click += new System.EventHandler(this.btnPatch_Click);
             // 
@@ -343,7 +343,7 @@
             this.lblCategory.Name = "lblCategory";
             this.lblCategory.Size = new System.Drawing.Size(65, 12);
             this.lblCategory.TabIndex = 20;
-            this.lblCategory.Text = "可选功能：";
+            this.lblCategory.Text = "功能开关：";
             // 
             // panelCategories
             // 
