@@ -12,6 +12,12 @@ namespace RevokeMsgPatcher.Matcher
         // TODO 该逻辑需要优化！
         public static List<Change> FindChanges(string path, List<ReplacePattern> replacePatterns)
         {
+            if (replacePatterns == null || replacePatterns.Count == 0)
+            {
+                throw new BusinessException("match_no_pattern",
+                    "未找到所选功能对应的特征，当前版本可能不支持所选功能！");
+            }
+
             Stopwatch sw = new Stopwatch();
             sw.Start();
             // 读取整个文件(dll)
