@@ -16,14 +16,7 @@ namespace RevokeMsgPatcher.Utils
         }
 
         /// <summary>
-        /// 补丁路径
-        /// 已经弃用的路径
-        /// https://swordmaker-hauls-51508.netlify.com/i/revokemsg/05.json
-        /// https://huiyadanli.github.io/i/revokemsg/05.json
-        /// 会自动跳转，没用了
-        /// https://gitee.com/huiyadanli/RevokeMsgPatcher/raw/master/RevokeMsgPatcher.Assistant/Data/1.2/patch.json
-        /// 需要登录，没用了
-        /// https://huiyadanli.coding.net/p/RevokeMsgPatcher/d/RevokeMsgPatcher/git/raw/master/RevokeMsgPatcher.Assistant/Data/1.6/patch.json
+        /// 当前维护仓库中的补丁数据目录。
         /// </summary>
 
         public static string PatchVersion
@@ -36,17 +29,14 @@ namespace RevokeMsgPatcher.Utils
                     return currentVersion.Substring(0, 3);
                 }
 
-                return "1.6";
+                return "3.0";
             }
         }
 
         private static readonly string[] urls = new string[]
         {
-            $"https://hui-config.oss-cn-hangzhou.aliyuncs.com/{PatchVersion}/patch.json",
-            $"https://mirror.ghproxy.com/https://raw.githubusercontent.com/huiyadanli/RevokeMsgPatcher/master/RevokeMsgPatcher.Assistant/Data/{PatchVersion}/patch.json",
-            $"https://raw.gitmirror.com/huiyadanli/RevokeMsgPatcher/master/RevokeMsgPatcher.Assistant/Data/{PatchVersion}/patch.json",
-            $"https://cdn.jsdelivr.net/gh/huiyadanli/RevokeMsgPatcher@master/RevokeMsgPatcher.Assistant/Data/{PatchVersion}/patch.json",
-            $"https://raw.githubusercontent.com/huiyadanli/RevokeMsgPatcher/master/RevokeMsgPatcher.Assistant/Data/{PatchVersion}/patch.json",
+            $"https://raw.githubusercontent.com/yzguo/RevokeMsgPatcher/master/RevokeMsgPatcher.Assistant/Data/{PatchVersion}/patch.json",
+            $"https://cdn.jsdelivr.net/gh/yzguo/RevokeMsgPatcher@master/RevokeMsgPatcher.Assistant/Data/{PatchVersion}/patch.json",
         };
 
         public static async Task<string> GetPatchJsonAsync()

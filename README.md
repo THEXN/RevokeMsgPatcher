@@ -1,82 +1,100 @@
-
 <p align="center">
-	<a><img width="100px" src="https://raw.githubusercontent.com/huiyadanli/RevokeMsgPatcher/master/Images/logo.png"/></a>
-</p>
-<p align="center">
-	<a href="https://www.microsoft.com/download/details.aspx?id=30653">
-		<img src="https://img.shields.io/badge/platform-windows-lightgrey.svg?style=flat-square"/>
-	</a>
-	<a href="https://github.com/huiyadanli/RevokeMsgPatcher/releases">
-		<img src="https://img.shields.io/github/downloads/huiyadanli/RevokeMsgPatcher/total.svg?style=flat-square"/>
-	</a>
-	<a href="https://ci.appveyor.com/project/huiyadanli/RevokeMsgPatcher">
-		<img src="https://img.shields.io/appveyor/ci/huiyadanli/RevokeMsgPatcher.svg?style=flat-square"/>
-	</a>
+  <img width="100" src="Images/logo.png" alt="RevokeMsgPatcher logo">
 </p>
 
-# 👀微信/QQ/TIM防撤回补丁
-适用于 Windows 下 PC 版微信/QQ/TIM的防撤回补丁。**支持微信/QQ/TIM**，其中微信能够选择安装多开功能。
+# RevokeMsgPatcher 3.0
 
-<img width="180px" src="https://raw.githubusercontent.com/huiyadanli/RevokeMsgPatcher/master/Images/revoke.jpg"/>
+[![Platform](https://img.shields.io/badge/platform-Windows-lightgrey.svg)](https://www.microsoft.com/windows)
+[![Release](https://img.shields.io/github/v/release/yzguo/RevokeMsgPatcher)](https://github.com/yzguo/RevokeMsgPatcher/releases/latest)
+[![Downloads](https://img.shields.io/github/downloads/yzguo/RevokeMsgPatcher/total.svg)](https://github.com/yzguo/RevokeMsgPatcher/releases)
+[![License](https://img.shields.io/github/license/yzguo/RevokeMsgPatcher)](LICENSE)
 
-下载地址：
-**[⚡️点我下载最新版本](https://github.com/huiyadanli/RevokeMsgPatcher/releases/download/2.1/RevokeMsgPatcher.v2.1.zip)** |
-[☁备用下载-蓝奏云](https://wwmy.lanzouq.com/b0fot7dpe)  密码:coco| 
-[☁备用下载-百度云](https://pan.baidu.com/s/15ilr78t8F1-VW8eUZSkr_Q?pwd=3rrj) 
+Windows 下的微信、QQ、TIM 防撤回与微信多开工具。3.0 由
+[Yanzhen Guo (@yzguo)](https://github.com/yzguo) 继续维护。
 
-相关文档：
-**[✔支持哪些版本](https://github.com/huiyadanli/RevokeMsgPatcher/wiki/%E7%89%88%E6%9C%AC%E6%94%AF%E6%8C%81)** | 
-[❓常见问题](https://github.com/huiyadanli/RevokeMsgPatcher/wiki#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98) | 
-[📖查看完整文档](https://github.com/huiyadanli/RevokeMsgPatcher/wiki)
+- 项目主页：https://github.com/yzguo/RevokeMsgPatcher
+- 问题反馈：https://github.com/yzguo/RevokeMsgPatcher/issues
+- 联系邮箱：yzhguo@mail.ustc.edu.cn
+- 最新版本：https://github.com/yzguo/RevokeMsgPatcher/releases/latest
 
-原理与方法：
-[📗微信](https://github.com/huiyadanli/RevokeMsgPatcher/wiki/%E5%BE%AE%E4%BF%A1%E9%98%B2%E6%92%A4%E5%9B%9E%E4%B8%8E%E5%A4%9A%E5%BC%80%E6%95%99%E7%A8%8B) |
-[📕QQ](https://github.com/huiyadanli/RevokeMsgPatcher/wiki/QQ%E6%88%96TIM%E9%98%B2%E6%92%A4%E5%9B%9E%E6%95%99%E7%A8%8B) |
-[📘TIM](https://github.com/huiyadanli/RevokeMsgPatcher/wiki/QQ%E6%88%96TIM%E9%98%B2%E6%92%A4%E5%9B%9E%E6%95%99%E7%A8%8B)
-**（本人不参与方法寻找，仅做特征搬运）**
+> 本项目会修改应用程序安装目录中的二进制文件。使用前请完全退出目标应用，确认备份可用，并自行承担兼容性风险。软件仅供学习与技术交流，请遵守所在地法律法规及相关软件服务条款。
 
-附带产物：[一个通用的微信多开工具](https://github.com/huiyadanli/RevokeMsgPatcher/tree/master/RevokeMsgPatcher.MultiInstance)
+## 主要功能
 
-## 📷截图
-![Screenshot](https://raw.githubusercontent.com/huiyadanli/RevokeMsgPatcher/master/Images/screenshot.png)
+| 应用 | 目标文件 | 功能 |
+| --- | --- | --- |
+| 微信 3.x | `WeChatWin.dll` | 防撤回、多开 |
+| 微信 4.x | `Weixin.dll` | 防撤回、多开，可独立选择 |
+| QQ / TIM | `IM.dll` | 防撤回 |
+| QQNT | `wrapper.node` | 群聊防撤回、私聊防撤回，可独立选择 |
 
-## 🔨使用方法
+3.0 同时提供：
 
-1. 首先，你的系统需要满足以下条件：
+- 每条特征独立校验，支持部分功能已安装时补齐其他功能。
+- 特征命中异常时拒绝写入，并显示具体命中数。
+- 安装前自动创建 `.h.bak` 备份，支持界面还原。
+- 从本仓库获取 `3.0/patch.json` 补丁数据。
+- 不收集或发送使用统计数据。
 
-    * Windows 7 或更高版本，**不支持XP**。
-    * [.NET Framework 4.5.2](https://www.microsoft.com/en-us/download/details.aspx?id=42642) 或更高版本。**低于此版本在打开程序时可能无反应，或者直接报错**。
+## 支持范围
 
-2. 使用本程序前，先关闭微信/QQ/TIM。
+3.0 已针对以下文件完成二进制副本测试：
 
-3. **以管理员身份运行本程序**，等待右下角获取最新的补丁信息。
+- Weixin `4.1.13.12`。
+- QQ `9.9.33-52230`，`wrapper.node` 文件版本 `9.8.0.23961`。
 
-4. 选择微信/QQ/TIM的安装路径。如果你用的安装版的微信/QQ/TIM，正常情况下本程序会自动从注册表中获取安装路径，绿色版需要手动选择路径。
+补丁使用版本范围和通配特征兼容后续小版本，但无法保证任意未来版本。出现“特征比对失败”时请停止操作，并在
+[Issues](https://github.com/yzguo/RevokeMsgPatcher/issues) 中附上应用版本、目标文件版本和完整错误信息；不要强制套用旧特征。
 
-5. 点击防撤回。界面可能会出现一段时间的无响应，请耐心等待。**由于修改了微信的 WeChatWin.dll 文件、QQ/TIM的 IM.dll 文件，杀毒软件可能会弹出警告，放行即可。**
+## 使用方法
 
-注意：微信/QQ/TIM更新之后要重新安装补丁！
+1. 从 [Releases](https://github.com/yzguo/RevokeMsgPatcher/releases/latest) 下载完整 ZIP 并解压，勿只复制 EXE。
+2. 安装 .NET Framework 4.5.2 或更高版本。
+3. 完全退出微信、QQ 或 TIM。
+4. 以管理员身份运行 `RevokeMsgPatcher.exe`。
+5. 选择应用和安装路径，勾选需要的功能，点击“安装所选功能”。
+6. 如需恢复，使用“备份还原”按钮恢复 `.h.bak` 文件。
 
-## 💡致谢
+应用升级后通常需要重新安装补丁。杀毒软件可能因二进制修改行为报警，请只从本仓库 Release 下载，并使用发布页提供的 SHA-256 校验文件。
 
-本项目早期内容源自 [wechat_anti_revoke](https://github.com/36huo/wechat_anti_revoke) 项目。
+## 工作原理
 
-2.0 之前版本 QQNT 防撤回依赖于 [LiteLoaderQQNT](https://github.com/LiteLoaderQQNT/LiteLoaderQQNT)，修补依赖于 [DLLHijackMethod](https://github.com/LiteLoaderQQNT/QQNTFileVerifyPatch/tree/DLLHijackMethod) 并集成了以下插件：
+程序优先使用文件版本和 SHA-1 进行精确匹配；没有精确记录时，使用支持通配字节的特征模式查找修改位置。每条模式必须处于以下两种唯一状态之一：
 
-* [插件列表查看 LL-plugin-list-viewer](https://github.com/ltxhhz/LL-plugin-list-viewer)
-* [防撤回 LiteLoaderQQNT-Anti-Recall](https://github.com/xh321/LiteLoaderQQNT-Anti-Recall)
+- 原始特征命中一次、替换特征未命中：功能尚未安装。
+- 原始特征未命中、替换特征命中一次：功能已经安装。
 
-2.1 版本的 QQNTT 防撤回特征来自 [NTQQAntiRecall]( https://github.com/NapNeko/NTQQAntiRecall)
+任何重复命中、同时命中或完全不命中都会中止写入。详细实现见 `Matcher/FuzzyMatcher.cs`、`Matcher/ModifyFinder.cs` 和 `Modifier/AppModifier.cs`。
 
-微信4.0版本后的防撤回特征来自于 [BetterWX](https://github.com/zetaloop/BetterWX)
+## 开发与补丁数据
 
-## ❤️投喂
+- 技术栈：C#、WinForms、.NET Framework 4.5.2。
+- 主解决方案：`RevokeMsgPatcher.sln`。
+- 补丁数据源：`RevokeMsgPatcher.Assistant/JsonData.cs`。
+- 3.0 在线补丁：`RevokeMsgPatcher.Assistant/Data/3.0/patch.json`。
+- 依赖：Newtonsoft.Json 13.0.3。
 
-觉的好用的话，可以支持作者哟ヾ(･ω･`｡) 
-* [⚡爱发电](https://afdian.com/@huiyadanli)
-* [🍚微信赞赏](https://github.com/huiyadanli/huiyadanli/blob/master/DONATE.md)
+提交兼容性修复前，请至少验证原始特征唯一命中、替换后特征唯一命中、重复安装拦截及备份还原。参与方式见 [CONTRIBUTING.md](CONTRIBUTING.md)。
 
-## 📄License
-[GPLv3](https://github.com/huiyadanli/RevokeMsgPatcher/blob/master/LICENSE)
+## 维护者
 
-![](https://raw.githubusercontent.com/huiyadanli/RevokeMsgPatcher/master/Images/give_a_star.png)
+当前维护者：**Yanzhen Guo**（[@yzguo](https://github.com/yzguo)）
+
+联系邮箱：**yzhguo@mail.ustc.edu.cn**
+
+## 致谢与项目来源
+
+RevokeMsgPatcher 3.0 基于 [huiyadanli/RevokeMsgPatcher](https://github.com/huiyadanli/RevokeMsgPatcher) 继续开发。感谢原作者 **huiyadanli** 创建并长期维护本项目，也感谢历代贡献者留下的代码、文档与补丁数据。历史版权和贡献归各自作者所有，详见 [NOTICE.md](NOTICE.md) 与 Git 提交历史。
+
+还要感谢以下项目和贡献来源：
+
+- [wechat_anti_revoke](https://github.com/36huo/wechat_anti_revoke)
+- [LiteLoaderQQNT](https://github.com/LiteLoaderQQNT/LiteLoaderQQNT)
+- [QQNTFileVerifyPatch](https://github.com/LiteLoaderQQNT/QQNTFileVerifyPatch)
+- [LiteLoaderQQNT-Anti-Recall](https://github.com/xh321/LiteLoaderQQNT-Anti-Recall)
+- [NTQQAntiRecall](https://github.com/NapNeko/NTQQAntiRecall)
+- [BetterWX](https://github.com/zetaloop/BetterWX)
+
+## 许可证
+
+本项目继续使用 [GNU General Public License v3.0](LICENSE)。分发修改版时必须保留许可证、版权声明、项目来源和修改说明。

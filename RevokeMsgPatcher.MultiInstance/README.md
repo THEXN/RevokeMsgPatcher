@@ -1,31 +1,25 @@
-## 一个通用的微信多开工具
+# RevokeMsgPatcher 微信多开工具
 
-此工具可以无视微信版本进行多开。
+这是 RevokeMsgPatcher 3.0 附带的通用微信多开工具，由 Yanzhen Guo（[@yzguo](https://github.com/yzguo)）维护。
 
-**⚠如果你曾使用过“PC版微信/QQ/TIM防撤回补丁”，并对微信安装了防撤回/多开的补丁，此时微信本身已经支持多开，请勿重复使用本工具！！！**
+项目主页：https://github.com/yzguo/RevokeMsgPatcher
 
-## 📷截图
-![Screenshot](https://raw.githubusercontent.com/huiyadanli/RevokeMsgPatcher/master/Images/screenshot.mi.png)
+## 使用方法
 
-## 🔨使用方法
+自动模式适合一般用户：点击“启动多开”，然后依次启动微信。启动频率过快时可能失败。
 
-⚔自动模式（一般用户使用这个模式即可）：
+手动模式提供两个操作：
 
-点击【启动多开】之后，就可以启动多个微信了。
+- “关闭所有微信进程”：清理启动失败后残留的无界面进程。
+- “清理所有微信互斥句柄”：清除微信用于限制多开的互斥标志；每启动一个新实例后可能需要再次执行。
 
-注意：启动多个微信频率太快时，可能会失败。
+如果已经通过主程序给微信安装了多开补丁，请勿重复使用本工具。
 
-🏹手动模式：
+## 致谢
 
-关闭所有微信进程：功能就是关闭所有微信进程，微信在某种启动失败的情况下会残留进程（无界面），一般不会遇到这种情况。
+- 原项目作者：[huiyadanli](https://github.com/huiyadanli)
+- [微信电脑端多开分析与原理](https://mp.weixin.qq.com/s/bb7XMxop7e8rd7YqQ88nyA)
 
-清理所有微信互斥句柄：功能就是把所有微信判断是否多开的标志全部清理掉，实现多开。如果只使用这个按钮实现多开的话，每次开启一个微信之后都要点一下这个按钮。
+## 许可证
 
-## ❤Thanks
-
-[微信电脑端多开分析与原理](https://mp.weixin.qq.com/s/bb7XMxop7e8rd7YqQ88nyA)
-
-## 📄License
-GPLv3
-
-![](https://raw.githubusercontent.com/huiyadanli/RevokeMsgPatcher/master/Images/give_a_star.png)
+本工具随主项目按 [GPL-3.0](../LICENSE) 发布。

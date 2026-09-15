@@ -185,7 +185,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(221, 61);
             this.label1.TabIndex = 17;
-            this.label1.Text = "本工具是\r\n【 PC版微信/QQ/TIM防撤回补丁】\r\n的额外产物\r\n更多信息可以在软件主页查看";
+            this.label1.Text = "RevokeMsgPatcher 3.0\r\n附带的微信多开工具\r\n由 Yanzhen Guo 维护\r\n更多信息请访问项目主页";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // linkLabel1
@@ -216,7 +216,7 @@
             this.MaximizeBox = false;
             this.Name = "FormMultiInstance";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "微信多开小工具";
+            this.Text = "RevokeMsgPatcher 微信多开工具";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormMultiInstance_FormClosed);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);

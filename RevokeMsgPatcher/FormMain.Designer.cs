@@ -117,7 +117,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(125, 12);
             this.label1.TabIndex = 6;
-            this.label1.Text = "软件主页(免费开源)：";
+            this.label1.Text = "项目主页（@yzguo）：";
             // 
             // linkLabel1
             // 
@@ -326,14 +326,14 @@
             // 
             this.作者ToolStripMenuItem.Name = "作者ToolStripMenuItem";
             this.作者ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
-            this.作者ToolStripMenuItem.Text = "关于";
+            this.作者ToolStripMenuItem.Text = "维护者与致谢";
             this.作者ToolStripMenuItem.Click += new System.EventHandler(this.关于ToolStripMenuItem_Click);
             // 
             // 主页ToolStripMenuItem
             // 
             this.主页ToolStripMenuItem.Name = "主页ToolStripMenuItem";
             this.主页ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
-            this.主页ToolStripMenuItem.Text = "软件主页";
+            this.主页ToolStripMenuItem.Text = "项目主页";
             this.主页ToolStripMenuItem.Click += new System.EventHandler(this.主页ToolStripMenuItem_Click);
             // 
             // lblCategory
@@ -427,7 +427,7 @@
             this.MinimumSize = new System.Drawing.Size(504, 144);
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "微信/QQ/TIM防撤回补丁";
+            this.Text = "RevokeMsgPatcher - 微信/QQ/TIM 防撤回补丁";
             this.Load += new System.EventHandler(this.FormMain_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

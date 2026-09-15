@@ -2,18 +2,18 @@ name: 版本支持
 description: 发现有未支持的版本，且 Issue 列表中暂无人提出相同版本未支持的问题，可以通过创建这个 Issue 进行反馈
 title: "[未支持版本]: "
 assignees:
-  - huiyadanli
+  - yzguo
 body:
   - type: markdown
     attributes:
       value: |
-        请按下方的要求填写完整的问题表单，方便作者进行更新。
+        请按下方要求填写完整信息，方便维护者定位和更新补丁。
 
   - type: checkboxes
     id: lastest
     attributes:
       label: 请先确认当前使用的 微信/QQ/TIM防撤回补丁 是最新版本！
-      description: 提交此 Issue 前请先确认你使用的是[最新 Release 版本的软件](https://github.com/huiyadanli/RevokeMsgPatcher/releases)
+      description: 提交此 Issue 前请先确认你使用的是[最新 Release 版本的软件](https://github.com/yzguo/RevokeMsgPatcher/releases/latest)
       options:
         - label: 我确认当前使用的是最新版
           required: true

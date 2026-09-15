@@ -22,7 +22,7 @@ namespace RevokeMsgPatcher.MultiInstance
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Process.Start("https://github.com/huiyadanli/RevokeMsgPatcher");
+            Process.Start("https://github.com/yzguo/RevokeMsgPatcher");
         }
 
         private void btnStartTimer_Click(object sender, EventArgs e)
@@ -114,7 +114,7 @@ namespace RevokeMsgPatcher.MultiInstance
 
         private void lblHowToUse_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Process.Start("https://github.com/huiyadanli/RevokeMsgPatcher/tree/master/RevokeMsgPatcher.MultiInstance");
+            Process.Start("https://github.com/yzguo/RevokeMsgPatcher/tree/master/RevokeMsgPatcher.MultiInstance");
         }
 
         private void FormMultiInstance_FormClosed(object sender, FormClosedEventArgs e)

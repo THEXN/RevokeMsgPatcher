@@ -1,11 +1,14 @@
 blank_issues_enabled: true
 contact_links:
-  - name: Ö±½Ó·¢Æğ Issue
-    url: https://github.com/huiyadanli/RevokeMsgPatcher/issues/new
-    about: Ò»Ğ©¹¦ÄÜ·´À¡£¬»òÕßÈí¼ş¸üĞÂºóÓöµ½µÄÎÊÌâ¿ÉÒÔÖ±½Ó Issue ½øĞĞÌáÎÊ£¨ÇëÏÈÈ·ÈÏµ±Ç°Ê¹ÓÃµÄÊÇ×îĞÂ°æ±¾£©
-  - name: ³£¼ûÎÊÌâ
-    url: https://github.com/huiyadanli/RevokeMsgPatcher/wiki#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98
-    about: ÔÚ·¢Æğ Issue Ç°£¬ÇëÏÈ²éÔÄ³£¼ûÎÊÌâµÄ½â¾ö·½°¸£¬Èç¹ûÈÔÓĞÒÉÎÊÔÙ·¢Æğ Issue
-  - name: Mac °æ±¾Î¢ĞÅ·À³·»Ø
+  - name: æäº¤ä¸€èˆ¬é—®é¢˜
+    url: https://github.com/yzguo/RevokeMsgPatcher/issues/new
+    about: åŠŸèƒ½å»ºè®®æˆ–ä¸é€‚åˆç‰ˆæœ¬æ”¯æŒæ¨¡æ¿çš„é—®é¢˜å¯ä»¥ç›´æ¥æäº¤æ™®é€š Issueã€‚
+  - name: ä½¿ç”¨è¯´æ˜ä¸å¸¸è§é—®é¢˜
+    url: https://github.com/yzguo/RevokeMsgPatcher#ä½¿ç”¨æ–¹æ³•
+    about: æäº¤ Issue å‰è¯·å…ˆé˜…è¯»ä½¿ç”¨æ–¹æ³•ã€æ”¯æŒèŒƒå›´å’Œæ³¨æ„äº‹é¡¹ã€‚
+  - name: è”ç³»ç»´æŠ¤è€…
+    url: https://github.com/yzguo
+    about: æ¶‰åŠéšç§æˆ–ä¸é€‚åˆå…¬å¼€è®¨è®ºçš„é—®é¢˜ï¼Œå¯æŒ‰ README ä¸­çš„é‚®ç®±è”ç³» Yanzhen Guoã€‚
+  - name: macOS å¾®ä¿¡é˜²æ’¤å›
     url: https://github.com/Sunnyyoung/WeChatTweak-macOS
-    about: ĞèÒª Mac °æ±¾Î¢ĞÅ·À³·»ØµÄÇëÖ±½Ó·ÃÎÊÕâ¸öÏîÄ¿£ºhttps://github.com/Sunnyyoung/WeChatTweak-macOS
+    about: æœ¬é¡¹ç›®ä»…æ”¯æŒ Windowsï¼›macOS ç”¨æˆ·è¯·å‚è€ƒè¯¥é¡¹ç›®ã€‚

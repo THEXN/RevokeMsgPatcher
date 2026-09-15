@@ -15,6 +15,10 @@ namespace RevokeMsgPatcher
 {
     public partial class FormMain : Form
     {
+        private const string ProjectUrl = "https://github.com/yzguo/RevokeMsgPatcher";
+        private const string ReleasesUrl = ProjectUrl + "/releases";
+        private const string IssuesUrl = ProjectUrl + "/issues";
+
         // 当前使用的修改者
         private AppModifier modifier = null;
 
@@ -29,7 +33,7 @@ namespace RevokeMsgPatcher
         private bool needUpdate = false;
         private string getPatchJsonStatus = "GETTING"; // GETTING FAIL SUCCESS
 
-        private readonly GAHelper ga = GAHelper.Instance; // Google Analytics 记录
+        private readonly GAHelper ga = GAHelper.Instance; // 3.0 中为无操作兼容层，不发送数据
 
         Bag bag = null;
 
@@ -315,7 +319,7 @@ namespace RevokeMsgPatcher
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Process.Start("https://github.com/huiyadanli/RevokeMsgPatcher");
+            Process.Start(ProjectUrl);
         }
 
         private async void FormMain_Load(object sender, EventArgs e)
@@ -401,7 +405,7 @@ namespace RevokeMsgPatcher
             DialogResult dr = MessageBox.Show(tips, "当前支持防撤回的版本", MessageBoxButtons.OKCancel);
             if (dr == DialogResult.OK && needUpdate)
             {
-                Process.Start("https://github.com/huiyadanli/RevokeMsgPatcher/releases");
+                Process.Start(ReleasesUrl);
             }
         }
 
@@ -507,42 +511,50 @@ namespace RevokeMsgPatcher
 
         private void 关于ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("本程序仅供学习交流,严禁用于商业用途。\n十六进制编辑器使用的修改数据集收集自网络。\n作者：huiyadanli", "关于本软件");
+            MessageBox.Show(
+                "RevokeMsgPatcher 3.0\n" +
+                "维护者：Yanzhen Guo (@yzguo)\n" +
+                "联系邮箱：yzhguo@mail.ustc.edu.cn\n\n" +
+                "原项目作者：huiyadanli\n" +
+                "感谢原作者及所有特征、插件和代码贡献者。\n\n" +
+                "本程序仅供学习交流，严禁用于商业用途。\n" +
+                "3.0 起不收集或发送使用数据。",
+                "关于 RevokeMsgPatcher 3.0");
         }
 
         private void 主页ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Process.Start("https://github.com/huiyadanli/RevokeMsgPatcher");
+            Process.Start(ProjectUrl);
         }
 
         private void 支持版本ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Process.Start("https://github.com/huiyadanli/RevokeMsgPatcher/wiki/%E7%89%88%E6%9C%AC%E6%94%AF%E6%8C%81");
+            Process.Start(ProjectUrl + "#支持范围");
         }
 
         private void 常见问题ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Process.Start("https://github.com/huiyadanli/RevokeMsgPatcher/wiki#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98");
+            Process.Start(IssuesUrl);
         }
 
         private void 防撤回原理ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Process.Start("https://github.com/huiyadanli/RevokeMsgPatcher/wiki#%E5%8E%9F%E7%90%86");
+            Process.Start(ProjectUrl + "#工作原理");
         }
 
         private void 完整文档ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Process.Start("https://github.com/huiyadanli/RevokeMsgPatcher/wiki");
+            Process.Start(ProjectUrl + "#使用方法");
         }
 
         private void 特征码防撤回强制ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("作者正在考虑是否要加上这个功能", "强制使用特征码防撤回");
+            MessageBox.Show("维护者暂未开放此功能", "强制使用特征码防撤回");
         }
 
         private void 手动输入补丁信息ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("作者正在考虑是否要加上这个功能，该功能可能有安全风险，暂时不加入", "手动输入补丁信息");
+            MessageBox.Show("该功能可能有安全风险，维护者暂不开放", "手动输入补丁信息");
         }
 
         private void 通用微信多开工具ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -561,7 +573,7 @@ namespace RevokeMsgPatcher
                 if (dr == DialogResult.OK)
                 {
                     Process.Start(
-                        "https://github.com/huiyadanli/RevokeMsgPatcher/tree/master/RevokeMsgPatcher.MultiInstance");
+                        ProjectUrl + "/tree/master/RevokeMsgPatcher.MultiInstance");
                 }
             }
         }

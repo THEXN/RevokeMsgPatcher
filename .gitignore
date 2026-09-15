@@ -23,4 +23,7 @@ bld/
 # Mine
 Temp/
 /packages/
+/artifacts/
+/.build-*/
+/*.nupkg
 .idea
