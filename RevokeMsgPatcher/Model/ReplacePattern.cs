@@ -16,6 +16,11 @@ namespace RevokeMsgPatcher.Model
         public string Tips { get; set; }
 
         /// <summary>
+        /// 同一功能的二进制布局变体。同一 Category 的变体互斥，只允许其中一个处于待安装或已安装状态。
+        /// </summary>
+        public bool Alternative { get; set; }
+
+        /// <summary>
         /// 同类冲突标签
         /// </summary>
         public string SimilarCategories { get; set; }

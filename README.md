@@ -2,14 +2,14 @@
   <img width="100" src="Images/logo.png" alt="RevokeMsgPatcher logo">
 </p>
 
-# RevokeMsgPatcher 3.0
+# RevokeMsgPatcher 3.1
 
 [![Platform](https://img.shields.io/badge/platform-Windows-lightgrey.svg)](https://www.microsoft.com/windows)
 [![Release](https://img.shields.io/github/v/release/yzguo/RevokeMsgPatcher)](https://github.com/yzguo/RevokeMsgPatcher/releases/latest)
 [![Downloads](https://img.shields.io/github/downloads/yzguo/RevokeMsgPatcher/total.svg)](https://github.com/yzguo/RevokeMsgPatcher/releases)
 [![License](https://img.shields.io/github/license/yzguo/RevokeMsgPatcher)](LICENSE)
 
-Windows 下的微信、QQ、TIM 防撤回与微信多开工具。3.0 由
+Windows 下的微信、QQ、TIM 防撤回与微信多开工具。3.1 由
 [Yanzhen Guo (@yzguo)](https://github.com/yzguo) 继续维护。
 
 - 项目主页：https://github.com/yzguo/RevokeMsgPatcher
@@ -28,20 +28,24 @@ Windows 下的微信、QQ、TIM 防撤回与微信多开工具。3.0 由
 | QQ / TIM | `IM.dll` | 防撤回 |
 | QQNT | `wrapper.node` | 群聊防撤回、私聊防撤回，可独立选择 |
 
-3.0 同时提供：
+3.1 同时提供：
 
 - 每条特征独立校验，支持部分功能已安装时补齐其他功能。
 - 特征命中异常时拒绝写入，并显示具体命中数。
+- QQNT 私聊防撤回支持同一功能的多个互斥二进制布局变体，由唯一命中的变体决定写入位置。
 - 安装前自动创建 `.h.bak` 备份，支持界面还原。
-- 从本仓库获取 `3.0/patch.json` 补丁数据。
+- 从本仓库获取 `3.1/patch.json` 补丁数据。
 - 不收集或发送使用统计数据。
 
 ## 支持范围
 
-3.0 已针对以下文件完成二进制副本测试：
+3.1 已针对以下文件完成二进制副本测试（安装、状态识别、重复安装拦截、混合状态补齐、字节一致性）：
 
-- Weixin `4.1.13.12`。
-- QQ `9.9.33-52230`，`wrapper.node` 文件版本 `9.8.0.23961`。
+- QQ `9.9.36-53644`，`wrapper.node` 文件版本 `9.8.0.24541`（私聊宽位移布局）。
+- QQ `9.9.31-49738`，`wrapper.node` 文件版本 `9.8.0.22989`（私聊窄位移布局，3.0 在此构建上私聊特征无法命中）。
+
+微信与其它 QQNT 构建沿用 3.0 的验证结论：Weixin `4.1.13.12`、QQ `9.9.33-52230`（`wrapper.node`
+`9.8.0.23961`）。QQNT 私聊分支的指令宽度在不同构建之间来回变化，单条通配特征无法表达，因此 3.1 为该功能收录了两个互斥布局变体；两个变体同时命中或同时不命中时程序都会拒绝写入。
 
 补丁使用版本范围和通配特征兼容后续小版本，但无法保证任意未来版本。出现“特征比对失败”时请停止操作，并在
 [Issues](https://github.com/yzguo/RevokeMsgPatcher/issues) 中附上应用版本、目标文件版本和完整错误信息；不要强制套用旧特征。
@@ -71,10 +75,12 @@ Windows 下的微信、QQ、TIM 防撤回与微信多开工具。3.0 由
 - 技术栈：C#、WinForms、.NET Framework 4.5.2。
 - 主解决方案：`RevokeMsgPatcher.sln`。
 - 补丁数据源：`RevokeMsgPatcher.Assistant/JsonData.cs`。
-- 3.0 在线补丁：`RevokeMsgPatcher.Assistant/Data/3.0/patch.json`。
+- 3.1 在线补丁：`RevokeMsgPatcher.Assistant/Data/3.1/patch.json`，同时内嵌于 `Properties/Resources.resx` 的 `PatchJson`。
+- `Data/3.0/patch.json` 保持冻结：旧版程序按自身版本号拉取 `3.0`，不能让它读到带 `Alternative` 字段的数据。
+- 同一功能的不同二进制布局用 `ReplacePattern.Alternative` 标记为互斥变体，由 `Matcher/ModifyFinder.cs` 解析唯一命中项。
 - 依赖：Newtonsoft.Json 13.0.3。
 
-提交兼容性修复前，请至少验证原始特征唯一命中、替换后特征唯一命中、重复安装拦截及备份还原。参与方式见 [CONTRIBUTING.md](CONTRIBUTING.md)。
+提交兼容性修复前，请至少验证原始特征唯一命中、替换后特征唯一命中、重复安装拦截及备份还原；新增布局变体时还需验证同一功能只有一个变体待安装。参与方式见 [CONTRIBUTING.md](CONTRIBUTING.md)。
 
 ## 维护者
 

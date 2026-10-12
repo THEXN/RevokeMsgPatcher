@@ -185,7 +185,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(221, 61);
             this.label1.TabIndex = 17;
-            this.label1.Text = "RevokeMsgPatcher 3.0\r\n附带的微信多开工具\r\n由 Yanzhen Guo 维护\r\n更多信息请访问项目主页";
+            this.label1.Text = "RevokeMsgPatcher 3.1\r\n附带的微信多开工具\r\n由 Yanzhen Guo 维护\r\n更多信息请访问项目主页";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // linkLabel1

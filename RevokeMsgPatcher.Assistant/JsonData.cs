@@ -16,8 +16,8 @@ namespace RevokeMsgPatcher
             return new Bag
             {
                 Apps = AppConfig(),
-                LatestVersion = "3.0",
-                PatchVersion = 20260915,
+                LatestVersion = "3.1",
+                PatchVersion = 20261012,
                 Notice = "",
                 NoticeUrl = "",
             };
@@ -1395,6 +1395,9 @@ namespace RevokeMsgPatcher
                             // 9.8.0.19307 之后，群聊分支保持稳定；私聊分支以
                             // "[Msg] on c2c recall nfy!" 日志后的分发调用为锚点。
                             // 栈偏移、源码行号和 call 相对地址均通配，以适配后续构建。
+                            // 私聊分支的指令宽度在不同构建间来回变化（9.8.0.22989 在日志
+                            // 调用后多出 mov r12,r14 且 lea 用 1 字节位移；9.8.0.23961、
+                            // 9.8.0.24541 没有），版本区间无法表达，故收录两个互斥布局变体。
                             new CommonModifyInfo
                             {
                                 Name="wrapper.node",
@@ -1414,7 +1417,16 @@ namespace RevokeMsgPatcher
                                         Search = ByteUtil.HexStringToByteArray("6A 02 5A 41 B9 3F 3F 00 00 E8 3F 3F 3F 3F 48 8B 8D 3F 3F 00 00 48 8D 95 3F 3F 00 00 E8 3F 3F 3F 3F 48 8D 8D 3F 3F 00 00 E8 3F 3F 3F 3F 48 8D 8D 3F 3F 00 00 E8 3F 3F 3F 3F 48 8D BD 3F 3F 00 00 48 89 F9 E8"),
                                         Replace = ByteUtil.HexStringToByteArray("6A 02 5A 41 B9 3F 3F 00 00 E8 3F 3F 3F 3F 48 8B 8D 3F 3F 00 00 48 8D 95 3F 3F 00 00 90 90 90 90 90 48 8D 8D 3F 3F 00 00 E8 3F 3F 3F 3F 48 8D 8D 3F 3F 00 00 E8 3F 3F 3F 3F 48 8D BD 3F 3F 00 00 48 89 F9 E8"),
                                         Category = "私聊防撤回",
-                                        Tips = "跳过私聊被动撤回通知的 HandleRecallMsgNotify 分发。"
+                                        Alternative = true,
+                                        Tips = "跳过私聊被动撤回通知的 HandleRecallMsgNotify 分发（宽位移布局，3.0 特征，9.8.0.24541 实测通过）。"
+                                    },
+                                    new ReplacePattern
+                                    {
+                                        Search = ByteUtil.HexStringToByteArray("6A 02 5A 41 B9 3F 3F 00 00 E8 3F 3F 3F 3F 4D 89 F4 48 8B 8D 3F 3F 00 00 48 8D 55 3F E8 3F 3F 3F 3F"),
+                                        Replace = ByteUtil.HexStringToByteArray("6A 02 5A 41 B9 3F 3F 00 00 E8 3F 3F 3F 3F 4D 89 F4 48 8B 8D 3F 3F 00 00 48 8D 55 3F 90 90 90 90 90"),
+                                        Category = "私聊防撤回",
+                                        Alternative = true,
+                                        Tips = "跳过私聊被动撤回通知的 HandleRecallMsgNotify 分发（窄位移布局，日志调用后带 mov r12,r14，9.8.0.22989 实测通过）。QQNT 更新后搜 [Msg] on c2c recall nfy!，再确认日志调用之后的那条分发调用。"
                                     }
                                 }
                             },

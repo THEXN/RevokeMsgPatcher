@@ -16,9 +16,9 @@
 ## 提交补丁特征
 
 1. 从最新 `master` 创建分支。
-2. 在 `RevokeMsgPatcher.Assistant/JsonData.cs` 中维护补丁数据。
-3. 同步生成对应版本的 `Data/<版本>/patch.json` 和主程序内嵌资源。
-4. 在原始文件副本上验证 Search 唯一命中。
+2. 在 `RevokeMsgPatcher.Assistant/JsonData.cs` 中维护补丁数据；同一功能在不同构建里的互斥布局用 `Alternative = true` 标记。
+3. 同步 `RevokeMsgPatcher.Assistant/Data/<LatestVersion>/patch.json` 与主程序 `Properties/Resources.resx` 的 `PatchJson`，并提升 `PatchVersion`。
+4. 在原始文件副本上验证 Search 唯一命中；带变体的功能还要确认同一构建只有一个变体命中。
 5. 验证安装后 Replace 唯一命中、重复安装被拦截、混合功能状态可补齐。
 6. 验证 `.h.bak` 还原后与原文件字节一致。
 7. 在 Pull Request 中写明应用版本、目标文件版本和测试结果。

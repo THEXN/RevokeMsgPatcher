@@ -512,14 +512,14 @@ namespace RevokeMsgPatcher
         private void 关于ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show(
-                "RevokeMsgPatcher 3.0\n" +
+                "RevokeMsgPatcher 3.1\n" +
                 "维护者：Yanzhen Guo (@yzguo)\n" +
                 "联系邮箱：yzhguo@mail.ustc.edu.cn\n\n" +
                 "原项目作者：huiyadanli\n" +
                 "感谢原作者及所有特征、插件和代码贡献者。\n\n" +
                 "本程序仅供学习交流，严禁用于商业用途。\n" +
                 "3.0 起不收集或发送使用数据。",
-                "关于 RevokeMsgPatcher 3.0");
+                "关于 RevokeMsgPatcher 3.1");
         }
 
         private void 主页ToolStripMenuItem_Click(object sender, EventArgs e)

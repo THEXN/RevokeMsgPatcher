@@ -62,7 +62,7 @@
             this.Controls.Add(this.tabControl);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormMain";
-            this.Text = "RevokeMsgPatcher 3.0 启动器";
+            this.Text = "RevokeMsgPatcher 3.1 启动器";
             this.tabControl.ResumeLayout(false);
             this.ResumeLayout(false);
 

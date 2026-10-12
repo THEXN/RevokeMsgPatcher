@@ -29,7 +29,7 @@ namespace RevokeMsgPatcher.Utils
                     return currentVersion.Substring(0, 3);
                 }
 
-                return "3.0";
+                return "3.1";
             }
         }
 
